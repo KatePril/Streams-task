@@ -5,9 +5,9 @@ import java.util.stream.Stream;
 
 public final class OutputGetter {
 
-    public static void getStreamOutput(Stream<String> names) {
+    public static void getStreamOutput(Stream<String> stream) {
         AtomicInteger count = new AtomicInteger(1);
-        names.forEach(name -> System.out.println(count.getAndIncrement() + ") " + name));
+        stream.forEach(name -> System.out.println(count.getAndIncrement() + ") " + name));
     }
 
     public static void getInitDataMsg() {
