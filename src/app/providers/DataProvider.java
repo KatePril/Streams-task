@@ -1,5 +1,7 @@
 package app.providers;
 
+import app.entity.Product;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,14 +20,14 @@ public final class DataProvider {
         return names;
     }
 
-    public static Map<String, Double> getProducts() {
-        Map<String, Double> products = new HashMap<>();
-        products.put("Milk", 2.79);
-        products.put("Bread", 1.89);
-        products.put("Cereal", 2.00);
-        products.put("Tomatoes", 1.54);
-        products.put("Butter", 3.15);
-        products.put("Apples", 1.68);
+    public static List<Product> getProducts() {
+        List<Product> products = new ArrayList<>();
+        products.add(new Product("Milk", 2.79));
+        products.add(new Product("Bread", 1.89));
+        products.add(new Product("Cereal", 2.00));
+        products.add(new Product("Tomatoes", 1.54));
+        products.add(new Product("Butter", 3.15));
+        products.add(new Product("Apples", 1.68));
         return products;
     }
 
