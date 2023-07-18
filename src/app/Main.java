@@ -3,6 +3,7 @@ package app;
 import app.entity.Product;
 import app.operators.FilterProducts;
 import app.operators.FilterStrings;
+import app.operators.FilterTemperature;
 import app.outputGetter.OutputGetter;
 import app.providers.DataProvider;
 
@@ -13,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
         executeTaskOne();
         executeTaskTwo();
+        executeTaskThree();
     }
 
     private static void executeTaskOne() {
@@ -26,7 +28,7 @@ public class Main {
         OutputGetter.getStreamOutput(filteredNames);
     }
 
-    private static void  executeTaskTwo() {
+    private static void executeTaskTwo() {
         System.out.println("\n----------Task 2----------");
         List<Product> products = DataProvider.getProducts();
         OutputGetter.getInitDataMsg();
@@ -35,5 +37,16 @@ public class Main {
         Stream<Product> filteredProducts = FilterProducts.filterPrices(products);
         OutputGetter.getFilteredDataMsg();
         OutputGetter.getStreamOutput(filteredProducts.map(Product::getName));
+    }
+
+    private static void executeTaskThree() {
+        System.out.println("\n----------Task 3----------");
+        List<Integer> temperatures = DataProvider.getTemperature();
+        OutputGetter.getInitDataMsg();
+        OutputGetter.getStreamOutput(temperatures.stream().map(String::valueOf));
+
+        Stream<Integer> filteredTemperatures = FilterTemperature.filterTemperature(temperatures);
+        OutputGetter.getFilteredDataMsg();
+        OutputGetter.getStreamOutput(filteredTemperatures.map(String::valueOf));
     }
 }
